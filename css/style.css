@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.app {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #f87171;
+}
