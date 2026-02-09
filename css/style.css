@@ -45,3 +45,10 @@ button {
 .error {
   color: #f87171;
 }
+
+#weatherIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0.5rem auto;
+  display: block;
+}

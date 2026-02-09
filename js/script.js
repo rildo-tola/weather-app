@@ -1,7 +1,7 @@
 // DOM ELEMENT SELECTION
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
-
+const weatherIcon = document.getElementById("weatherIcon");
 const weatherContainer = document.getElementById("weatherContainer");
 const cityName = document.getElementById("cityName");
 const temperature = document.getElementById("temperature");
@@ -10,7 +10,7 @@ const errorMsg = document.getElementById("errorMsg");
 const loadingMsg = document.getElementById("loadingMsg");
 
 // API KEY
-const API_KEY = "15640c149378b4e587f08bcab5bda9b1";
+const API_KEY = "";
 
 
 // SEARCH BUTTON EVENT
@@ -19,6 +19,13 @@ searchBtn.addEventListener("click", () => {
   if (city === "") return;
   getWeather(city);
 });
+
+cityInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    searchBtn.click();
+  }
+});
+
 
 // MAIN FUNCTION
 async function getWeather(city) {
@@ -40,6 +47,9 @@ async function getWeather(city) {
 
     const data = await response.json();
 
+const iconCode = data.weather[0].icon;
+weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
     cityName.textContent = data.name;
     temperature.textContent = `🌡️ ${Math.round(data.main.temp)}°C`;
     description.textContent = `☁️ ${data.weather[0].description}`;
@@ -53,4 +63,7 @@ async function getWeather(city) {
     loadingMsg.classList.add("hidden");
     searchBtn.disabled = false;
   }
+  
 }
+
+cityInput.focus();
